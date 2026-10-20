@@ -197,6 +197,32 @@ section{padding-block:clamp(72px,9vw,128px)}
 .res .tone{display:inline-block;padding:4px 12px;border-radius:999px;font-size:14px;font-weight:600;align-self:flex-start}
 @media (max-width:900px){.test .grid{grid-template-columns:1fr}.card{min-height:0}}
 
+
+/* bienestar: consejos y ejercicios */
+.bien{background:var(--surface)}
+.bien h2{font-size:var(--s-h2);margin-bottom:18px;max-width:20ch}
+.bien .lead{font-size:20px;color:var(--muted);max-width:52ch}
+.bien h3.sub{font-family:var(--text);font-size:var(--s-small);font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:56px 0 4px}
+.tips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 clamp(24px,4vw,56px);border-top:1px solid var(--stone)}
+.tips div{padding:22px 0;border-bottom:1px solid var(--stone)}
+.tips h4{font-size:19px;font-weight:600;margin-bottom:6px}
+.tips p{color:var(--muted)}
+.ex{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:20px}
+.ex>div{background:var(--ground);border-radius:4px;padding:clamp(22px,2.6vw,32px);display:flex;flex-direction:column;gap:12px}
+.ex h4{font-family:var(--display);font-weight:400;font-size:26px;line-height:1.1}
+.ex .t{font-size:var(--s-small);color:var(--accent);font-weight:600}
+.ex ol{margin:0;padding-left:20px;color:var(--muted)}
+.ex ol li{margin-bottom:6px}
+.breath{display:flex;flex-direction:column;align-items:center;gap:14px;margin:6px 0 4px}
+.orb{width:150px;height:150px;border-radius:50%;display:grid;place-items:center;background:var(--accent-soft);position:relative}
+.orb::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--accent);opacity:.16;transform:scale(.55);transition:transform var(--d,4s) ease-in-out}
+.orb.in::before{transform:scale(1)}
+.orb span{position:relative;font:600 17px/1.2 var(--text);color:var(--accent);text-align:center}
+.orb b{display:block;font-family:var(--display);font-weight:400;font-size:34px}
+.bien .fine{margin-top:36px;max-width:70ch}
+@media (prefers-reduced-motion:reduce){.orb::before{transition:none}}
+@media (max-width:900px){.tips,.ex{grid-template-columns:1fr}.bien .lead{font-size:18px}}
+
 /* acompañamiento */
 .psi .grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(24px,5vw,80px);align-items:center}
 .psi .photo{aspect-ratio:5/4}
@@ -398,6 +424,49 @@ footer .legal{margin-top:56px;font-size:13px;color:#a8a299;display:flex;justify-
   </div>
 </section>
 
+<section class="bien" id="bienestar" aria-labelledby="bien-h">
+  <div class="wrap">
+    <h2 id="bien-h">Herramientas para manejar el estrés</h2>
+    <p class="lead">Consejos de la psicología para el día a día y tres ejercicios cortos que puedes hacer en la oficina, el bus o la casa. Úsalos con o sin InhalaFit.</p>
+
+    <h3 class="sub">Consejos para tu día</h3>
+    <div class="tips">
+      <div><h4>Ponle nombre a lo que sientes</h4><p>Decir «estoy tenso» o «estoy frustrado» en lugar de solo actuar ayuda a bajar la intensidad de la emoción y a elegir qué hacer.</p></div>
+      <div><h4>Detecta tus momentos de riesgo</h4><p>Durante una semana anota la hora, qué pasó, qué sentiste y qué comiste. Verás que los impulsos se repiten en ciertas situaciones.</p></div>
+      <div><h4>Haz pausas antes de agotarte</h4><p>Una pausa de dos o tres minutos cada 90 minutos de trabajo previene que el estrés se acumule hasta la tarde.</p></div>
+      <div><h4>Cuida tu sueño</h4><p>Dormir de 7 a 9 horas, con horarios parecidos cada día, mejora la tolerancia al estrés y reduce los antojos.</p></div>
+      <div><h4>Mueve el cuerpo</h4><p>Una caminata de 10 minutos ya libera tensión. No necesitas un gimnasio: sube escaleras o camina mientras hablas por teléfono.</p></div>
+      <div><h4>Conversa con alguien</h4><p>Contarle a una persona de confianza lo que te preocupa ordena las ideas y alivia la carga. No tienes que resolverlo todo solo.</p></div>
+    </div>
+
+    <h3 class="sub">Ejercicios de relajación</h3>
+    <div class="ex">
+      <div>
+        <span class="t">3 minutos</span>
+        <h4>Respiración 4-4-6</h4>
+        <p class="small">Exhalar más largo que inhalar ayuda a bajar el ritmo del cuerpo. Sigue el círculo.</p>
+        <div class="breath">
+          <div class="orb" id="orb"><span id="orbTxt">6 ciclos</span></div>
+          <button class="btn" id="orbBtn" type="button">Empezar</button>
+        </div>
+      </div>
+      <div>
+        <span class="t">2 minutos</span>
+        <h4>Técnica 5-4-3-2-1</h4>
+        <p class="small">Para cuando la mente se acelera. Lleva la atención al presente nombrando, sin apuro:</p>
+        <ol><li>5 cosas que ves</li><li>4 cosas que puedes tocar</li><li>3 sonidos que escuchas</li><li>2 olores que percibes</li><li>1 cosa que agradeces hoy</li></ol>
+      </div>
+      <div>
+        <span class="t">4 minutos</span>
+        <h4>Relajación muscular breve</h4>
+        <p class="small">Tensa cada zona 5 segundos y suéltala 10, notando la diferencia:</p>
+        <ol><li>Manos: cierra los puños</li><li>Hombros: súbelos hacia las orejas</li><li>Cara: aprieta ojos y mandíbula</li><li>Abdomen: contráelo</li><li>Piernas: estira y tensa los pies</li></ol>
+      </div>
+    </div>
+    <p class="fine small">Estos consejos son de bienestar general y no reemplazan la atención profesional. Si el estrés o la ansiedad duran más de dos semanas o te impiden hacer tu vida normal, <a href="#test">haz la autoevaluación</a> o <a href="#acompanamiento">habla con un psicólogo</a>.</p>
+  </div>
+</section>
+
 <section class="psi" id="acompanamiento" aria-labelledby="psi-h">
   <div class="wrap grid">
     <div>
@@ -476,7 +545,7 @@ footer .legal{margin-top:56px;font-size:13px;color:#a8a299;display:flex;justify-
       <div><span class="word">InhalaFit</span><div class="reach"><span>WhatsApp <b id="waNum">(número por configurar)</b></span><span><b id="mailTxt"></b></span><span class="small" style="color:#a8a299">Lunes a sábado, 9 a. m. a 6 p. m. · Respondemos en menos de 48 horas.</span></div></div>
       <div class="cols">
         <div><a href="#hambre">¿Hambre o ansiedad?</a><a href="#uso">Uso</a><a href="#contiene">Composición</a><a href="#proceso">Prototipos</a></div>
-        <div><a href="#test">Autoevaluación</a><a href="#acompanamiento">Psicólogos</a><a href="#comprar">Comprar</a></div>
+        <div><a href="#test">Autoevaluación</a><a href="#bienestar">Manejo del estrés</a><a href="#acompanamiento">Psicólogos</a><a href="#comprar">Comprar</a></div>
         <div><a id="ig" href="#" target="_blank" rel="noopener">Instagram</a><a id="tt" href="#" target="_blank" rel="noopener">TikTok</a><a href="#reclamos">Libro de reclamaciones</a><a href="#proyecto">Sobre el proyecto</a></div>
       </div>
     </div>
@@ -498,6 +567,28 @@ footer .legal{margin-top:56px;font-size:13px;color:#a8a299;display:flex;justify-
     var k=img.getAttribute('data-slot'); img.onerror=function(){ img.onerror=null; img.src=FALLBACK[k]; }; img.src=IMG[k];
   });
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // guía de respiración 4-4-6
+  (function(){
+    var orb=document.getElementById('orb'), tx=document.getElementById('orbTxt'), bt=document.getElementById('orbBtn');
+    if(!orb) return; var timers=[], running=false;
+    var steps=[['Inhala',4,'in'],['Sostén',4,'hold'],['Exhala',6,'out']];
+    function clear(){ timers.forEach(clearTimeout); timers=[]; }
+    function stop(msg){ clear(); running=false; orb.classList.remove('in'); orb.style.setProperty('--d','4s'); tx.innerHTML=msg||'6 ciclos'; bt.textContent='Empezar'; }
+    function run(){
+      var t=0;
+      for(var c=0;c<6;c++){ steps.forEach(function(st){
+        (function(st,c,t0){ timers.push(setTimeout(function(){
+          orb.style.setProperty('--d',st[1]+'s');
+          if(st[2]==='in') orb.classList.add('in'); if(st[2]==='out') orb.classList.remove('in');
+          var n=st[1]; tx.innerHTML=st[0]+'<b>'+n+'</b>';
+          for(var k=1;k<st[1];k++){ (function(k){ timers.push(setTimeout(function(){ tx.innerHTML=st[0]+'<b>'+(st[1]-k)+'</b>'; },k*1000)); })(k); }
+        },t0*1000)); })(st,c,t);
+        t+=st[1]; }); }
+      timers.push(setTimeout(function(){ stop('Bien hecho'); },t*1000));
+    }
+    bt.addEventListener('click',function(){ if(running){ stop(); return; } running=true; bt.textContent='Detener'; run(); });
+  })();
+
   var uv=document.getElementById('usoVid'); if(uv && reduce){ uv.removeAttribute('autoplay'); try{uv.pause();}catch(e){} }
   function wa(m){ return WHATSAPP ? 'https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(m) : ''; }
   document.querySelectorAll('[data-wa]').forEach(function(a){ var h=wa(a.getAttribute('data-wa')); if(h){ a.href=h; a.target='_blank'; a.rel='noopener'; } });
